@@ -39,9 +39,8 @@ module StiDeploy
 
     def git_commit!
       read_release_message
-      preparing = I18n.t('messages.git.preparing')
       Git.add_version
-      Git.commit(message: "por #{git_user}: #{preparing} #{message}")
+      Git.commit(message: commit_message)
       Git.push(branch: Git.origin_branch(deploy_type: type))
     end
 
@@ -56,6 +55,13 @@ module StiDeploy
     def git_tag!
       Git.tag(version: version.to_s, message: message)
       Git.push_tags
+    end
+
+    def commit_message
+      by = I18n.t('messages.git.by')
+      preparing = I18n.t('messages.git.preparing')
+      return "#{preparing} #{message}" if git_user.blank?
+      "#{by} #{git_user}: #{preparing} #{message}"
     end
   end
 end

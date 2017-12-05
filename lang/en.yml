@@ -12,4 +12,7 @@ en:
       prompt: "\nInform a summary of the changes made, in order to create a Git tag:\n> "
       invalid: 'Please write a proper summary (min of 10 chars)!'
     git:
+      by: by
       preparing: Setting up for deploy.
+    system:
+      interrupted: "\n\nDeploy aborted. Bye-bye."

@@ -9,7 +9,7 @@ module StiDeploy
         validate_version_file
         version = read_current_version
         validate_version(version)
-        Messages.puts('version.detected', version: version)
+        Messages.puts('version.detected', version: version, color: :green)
         version
       end
 
@@ -18,7 +18,7 @@ module StiDeploy
       def validate_version_file
         return true if File.file?(Configuration.version_path)
         Messages.puts('version.file_not_found',
-                      path: Configuration.version_path)
+                      path: Configuration.version_path, color: :red)
         exit(-1)
       end
 
@@ -31,7 +31,8 @@ module StiDeploy
 
       def validate_version(version)
         return true if version && !version.is_a?(File)
-        Messages.puts('version.not_found', path: Configuration.version_path)
+        Messages.puts('version.not_found', path: Configuration.version_path,
+                      color: :red)
         exit(-2)
       end
     end

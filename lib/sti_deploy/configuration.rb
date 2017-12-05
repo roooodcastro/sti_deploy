@@ -1,27 +1,35 @@
 require 'yaml'
+require 'pry'
 
 module StiDeploy
   class Configuration
-    CONFIG_PATH = File.expand_path(File.join(__dir__, '../../', '/config.yml'))
+    CONFIG_PATH = 'sti_deploy.yml'
 
     class << self
+      attr_reader :config
+
+      def version_path
+        read('version_path') || 'config/initializers/version.rb'
+      end
+
+      def language
+        read('language') || 'en'
+      end
+
+      def git_username
+        read('git_username') || ''
+      end
+
       private
 
       def read(config_name)
-        YAML::load(File.open(CONFIG_PATH))[config_name]
+        unless defined? @config
+          @config = YAML::load(File.open(CONFIG_PATH))
+        end
+        @config[config_name]
+      rescue
+        @config = nil
       end
-    end
-
-    def self.version_path
-      read('version_path')
-    end
-
-    def self.language
-      read('language')
-    end
-
-    def self.git_username
-      read('git_username')
     end
   end
 end

@@ -12,4 +12,7 @@ pt-BR:
       prompt: "\nEscreva um resumo das alterações feitas, para criar a tag no Git:\n> "
       invalid: 'Escreva uma mensagem decente (min 10 chars)!'
     git:
+      by: por
       preparing: Preparando para deploy.
+    system:
+      interrupted: "\n\nDeploy abortado. Bye-bye."
