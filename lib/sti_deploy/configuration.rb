@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'yaml'
 require 'pry'
 
@@ -22,13 +24,13 @@ module StiDeploy
 
       def origin_branch(deploy_type)
         read('branches')[deploy_type.full_name]['origin'] || 'master'
-      rescue
+      rescue StandardError
         'master'
       end
 
       def target_branch(deploy_type)
         read('branches')[deploy_type.full_name]['target'] || 'master'
-      rescue
+      rescue StandardError
         'master'
       end
 
@@ -36,10 +38,10 @@ module StiDeploy
 
       def read(config_name)
         unless defined? @config
-          @config = YAML::load(File.open(CONFIG_PATH))
+          @config = YAML.safe_load(File.open(CONFIG_PATH))
         end
         @config[config_name]
-      rescue
+      rescue StandardError
         @config = nil
       end
     end

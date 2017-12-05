@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module StiDeploy
   class Version
     attr_accessor :major, :minor, :hotfix, :rc, :pre
@@ -59,8 +61,8 @@ module StiDeploy
 
     def to_s
       base = "#{major}.#{minor}.#{hotfix}"
-      base += "rc#{rc}" if rc > 0
-      base += "pre#{pre}" if pre > 0
+      base += "rc#{rc}" if rc.positive?
+      base += "pre#{pre}" if pre.positive?
       base
     end
 
@@ -73,14 +75,14 @@ module StiDeploy
 
     # Bump (h)omologação
     def bump_h
-      self.minor += 1 if rc == 0 # Se ainda não existir RC, dá bump no minor
+      self.minor += 1 if rc.zero? # Se ainda não existir RC, dá bump no minor
       self.hotfix = 0
       self.rc += 1
     end
 
     # Bump (p)rojeto
     def bump_p
-      self.minor += 1 if pre == 0 # Se ainda não existir PRE, dá bump no minor
+      self.minor += 1 if pre.zero? # Se ainda não existir PRE, dá bump no minor
       self.hotfix = 0
       self.pre += 1
     end

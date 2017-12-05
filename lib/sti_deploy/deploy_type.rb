@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module StiDeploy
   class DeployType
     attr_reader :type

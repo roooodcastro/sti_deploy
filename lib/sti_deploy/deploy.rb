@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module StiDeploy
   class Deploy
     attr_reader :version, :type, :message, :git_user
@@ -23,7 +25,7 @@ module StiDeploy
     def read_type
       Messages.print('deploy_type.prompt')
       type = gets.chomp
-      return @type = DeployType.new(type) if %w(f F h H p P).include? type
+      return @type = DeployType.new(type) if %w[f F h H p P].include? type
       Messages.puts('deploy_type.invalid')
       read_type
     end
