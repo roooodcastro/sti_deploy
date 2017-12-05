@@ -1,0 +1,15 @@
+pt-BR:
+  messages:
+    version:
+      file_not_found: O arquivo de versão não foi encontrado em "%{path}"!
+      not_found: "Um número de versão válido não foi encontrado em \"%{path}\"!"
+      detected: "Número de versão detectado: %{version}"
+      increment: "\nA versão será incrementada de \"%{old}\" para \"%{new}\"."
+    deploy_type:
+      prompt: "\nO deploy é para hot(f)ix, (h)omologação, or (p)rojeto? Digite \"f\", \"h\", ou \"p\": "
+      invalid: 'Tipo inválido. Digite apenas "f", "h", ou "p", animal!'
+    release_message:
+      prompt: "\nEscreva um resumo das alterações feitas, para criar a tag no Git:\n> "
+      invalid: 'Escreva uma mensagem decente (min 10 chars)!'
+    git:
+      preparing: Preparando para deploy.

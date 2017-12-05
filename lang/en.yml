@@ -1,0 +1,15 @@
+en:
+  messages:
+    version:
+      file_not_found: The version file was not found in "%{path}"!
+      not_found: A valid version number was not found in the file "%{path}"!
+      detected: "Version number detected: %{version}"
+      increment: "\nThe version number will be bumped from \"%{old}\" to \"%{new}\"."
+    deploy_type:
+      prompt: "\nIs the deploy for hot(f)ix, staging(h), or (p)roject? Type in \"f\", \"h\", or \"p\": "
+      invalid: 'Invalid option. Type in only "f", "h", or "p", imbecile!'
+    release_message:
+      prompt: "\nInform a summary of the changes made, in order to create a Git tag:\n> "
+      invalid: 'Please write a proper summary (min of 10 chars)!'
+    git:
+      preparing: Setting up for deploy.
