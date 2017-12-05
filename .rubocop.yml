@@ -27,6 +27,8 @@ AllCops:
     - '**/Berksfile'
     - '**/Cheffile'
     - '**/Vagabondfile'
+  Exclude:
+    - 'bin/sti_deploy'
 
   DisplayCopNames: true
   DisplayStyleGuide: true
