@@ -38,5 +38,5 @@ AllCops:
   UseCache: true
   MaxFilesInCache: 20000
   CacheRootDirectory: /tmp
-  TargetRubyVersion: 2.4
+  TargetRubyVersion: 2.1
 

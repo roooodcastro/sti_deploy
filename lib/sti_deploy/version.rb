@@ -61,8 +61,8 @@ module StiDeploy
 
     def to_s
       base = "#{major}.#{minor}.#{hotfix}"
-      base += "rc#{rc}" if rc.positive?
-      base += "pre#{pre}" if pre.positive?
+      base += "rc#{rc}" if rc > 0
+      base += "pre#{pre}" if pre > 0
       base
     end
 
