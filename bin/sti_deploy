@@ -1,5 +1,5 @@
 #!/usr/bin/env ruby
 
-require_relative '../sti_deploy'
+require_relative '../lib/sti_deploy'
 
 StiDeploy.begin_sti_deploy
