@@ -14,5 +14,8 @@ pt-BR:
     git:
       by: por
       preparing: Preparando para deploy.
+      committing: "\nComitando a nova versão..."
+      merging: "\nFazendo merge de \"%{origin}\" para \"%{target}\"..."
+      tagging: "\nCriando uma nova tag..."
     system:
       interrupted: "\n\nDeploy abortado. Bye-bye."

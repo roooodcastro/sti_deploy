@@ -14,5 +14,8 @@ en:
     git:
       by: by
       preparing: Setting up for deploy.
+      committing: "\nCommiting the new version number..."
+      merging: "\nMerging from \"%{origin}\" to \"%{target}\"..."
+      tagging: "\nCreating a new tag..."
     system:
       interrupted: "\n\nDeploy aborted. Bye-bye."

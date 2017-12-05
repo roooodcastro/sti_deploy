@@ -49,7 +49,7 @@ module StiDeploy
     def bump(deploy_type)
       old = to_s
       send("bump_#{deploy_type}")
-      Messages.puts('version.increment', old: old, new: to_s)
+      Messages.puts('version.increment', old: old, new: to_s, color: :green)
       to_s
     end
 

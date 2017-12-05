@@ -16,7 +16,7 @@ module StiDeploy
 
     def commit_merge_and_tag!
       git_commit!
-      git_merge!
+      git_merge! unless same_origin_target_branches?
       git_tag!
     end
 
@@ -40,20 +40,24 @@ module StiDeploy
 
     def git_commit!
       read_release_message
+      Messages.puts('git.committing', color: :yellow)
       Git.add_version
       Git.commit(message: commit_message)
-      Git.push(branch: Configuration.origin_branch(type))
+      Git.push(branch: origin_branch)
     end
 
     def git_merge!
-      Git.checkout(branch: Configuration.target_branch(type))
-      Git.pull(branch:     Configuration.target_branch(type))
-      Git.merge(branch:    Configuration.origin_branch(type))
-      Git.push(branch:     Configuration.target_branch(type))
-      Git.checkout(branch: Configuration.origin_branch(type))
+      Messages.puts('git.merging', origin: origin_branch, target: target_branch,
+                    color: :yellow)
+      Git.checkout(branch: target_branch)
+      Git.pull(branch:     target_branch)
+      Git.merge(branch:    origin_branch)
+      Git.push(branch:     target_branch)
+      Git.checkout(branch: origin_branch)
     end
 
     def git_tag!
+      Messages.puts('git.tagging', color: :yellow)
       Git.tag(version: version.to_s, message: message)
       Git.push_tags
     end
@@ -63,6 +67,18 @@ module StiDeploy
       preparing = I18n.t('messages.git.preparing')
       return "#{preparing} #{message}" if git_user.nil? || git_user.empty?
       "#{by} #{git_user}: #{preparing} #{message}"
+    end
+
+    def same_origin_target_branches?
+      origin_branch == target_branch
+    end
+
+    def origin_branch
+      Configuration.origin_branch(type)
+    end
+
+    def target_branch
+      Configuration.target_branch(type)
     end
   end
 end
