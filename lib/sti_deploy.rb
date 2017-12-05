@@ -4,6 +4,7 @@ require_relative 'sti_deploy/configuration'
 require_relative 'sti_deploy/messages'
 require_relative 'sti_deploy/version'
 require_relative 'sti_deploy/git'
+require_relative 'sti_deploy/deploy_type'
 require_relative 'sti_deploy/deploy'
 
 # Program exit codes:

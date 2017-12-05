@@ -20,6 +20,18 @@ module StiDeploy
         read('git_username') || ''
       end
 
+      def origin_branch(deploy_type)
+        read('branches')[deploy_type.full_name]['origin'] || 'master'
+      rescue
+        'master'
+      end
+
+      def target_branch(deploy_type)
+        read('branches')[deploy_type.full_name]['target'] || 'master'
+      rescue
+        'master'
+      end
+
       private
 
       def read(config_name)

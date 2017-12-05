@@ -9,7 +9,6 @@ module StiDeploy
 
     def update_version!
       version.bump(read_type)
-      puts type
       version.update_file!
     end
 
@@ -24,7 +23,7 @@ module StiDeploy
     def read_type
       Messages.print('deploy_type.prompt')
       type = gets.chomp
-      return @type = type.downcase if %w(f F h H p P).include? type
+      return @type = DeployType.new(type) if %w(f F h H p P).include? type
       Messages.puts('deploy_type.invalid')
       read_type
     end
@@ -41,15 +40,15 @@ module StiDeploy
       read_release_message
       Git.add_version
       Git.commit(message: commit_message)
-      Git.push(branch: Git.origin_branch(deploy_type: type))
+      Git.push(branch: Configuration.origin_branch(type))
     end
 
     def git_merge!
-      Git.checkout(branch: Git.target_branch(deploy_type: type))
-      Git.pull(branch: Git.target_branch(deploy_type: type))
-      Git.merge(deploy_type: type)
-      Git.push(branch: Git.target_branch(deploy_type: type))
-      Git.checkout(branch: Git.origin_branch(deploy_type: type))
+      Git.checkout(branch: Configuration.target_branch(type))
+      Git.pull(branch:     Configuration.target_branch(type))
+      Git.merge(branch:    Configuration.origin_branch(type))
+      Git.push(branch:     Configuration.target_branch(type))
+      Git.checkout(branch: Configuration.origin_branch(type))
     end
 
     def git_tag!
@@ -60,7 +59,7 @@ module StiDeploy
     def commit_message
       by = I18n.t('messages.git.by')
       preparing = I18n.t('messages.git.preparing')
-      return "#{preparing} #{message}" if git_user.blank?
+      return "#{preparing} #{message}" if git_user.nil? || git_user.empty?
       "#{by} #{git_user}: #{preparing} #{message}"
     end
   end
