@@ -19,3 +19,4 @@ en:
       tagging: "\nCreating a new tag..."
     system:
       interrupted: "\n\nDeploy aborted. Bye-bye."
+      finished: "\nThe deploy init process has finished!"

@@ -19,3 +19,4 @@ pt-BR:
       tagging: "\nCriando uma nova tag..."
     system:
       interrupted: "\n\nDeploy abortado. Bye-bye."
+      finished: "\nO processo de início do deploy está terminado!"

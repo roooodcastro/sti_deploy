@@ -23,6 +23,7 @@ module StiDeploy
       deploy = Deploy.new
       deploy.update_version!
       deploy.commit_merge_and_tag!
+      Messages.puts 'system.finished', color: :green
     rescue Interrupt
       Messages.puts 'system.interrupted', color: :red
       exit(-3)
