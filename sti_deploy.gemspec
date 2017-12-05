@@ -26,7 +26,5 @@ Gem::Specification.new do |s|
   s.add_runtime_dependency 'colorize', '~> 0'
   s.add_runtime_dependency 'i18n', '~> 0.6.6'
 
-  s.add_development_dependency 'awesome_print', '~> 0'
-  s.add_development_dependency 'pry', '~> 0'
   s.add_development_dependency 'rubocop', '~> 0.49.0'
 end
