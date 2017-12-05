@@ -1,5 +1,11 @@
 require 'i18n'
-require 'colorize'
+
+begin
+  require 'colorize'
+rescue LoadError
+  # No I18n support yet at this point ):
+  puts "Colorize gem not found. No terminal color support.\n\n"
+end
 
 module StiDeploy
   class Messages
@@ -27,7 +33,7 @@ module StiDeploy
       def colorized_message(i18n_key, options)
         color = options.delete(:color)
         message = I18n.t("messages.#{i18n_key}", options)
-        return message unless color
+        return message unless color && message.respond_to?(:colorize)
         message.colorize(color)
       end
     end
