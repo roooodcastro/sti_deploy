@@ -20,3 +20,10 @@ pt-BR:
     system:
       interrupted: "\n\nDeploy abortado. Bye-bye."
       finished: "\nO processo de início do deploy está terminado!"
+    generator:
+      language_chosen: 'Idioma configurado para Português!'
+      username_prompt: "\nDigite o seu nome de usuário do Git:"
+      username_chosen: "Nome de usuário configurado!\n"
+      gitignore_updated: 'O novo arquivo sti_deploy.yml foi adicionado ao .gitignore!'
+      gitignore_skipped: "O arquivo do .gitignore já ignora o novo arquivo sti_deploy.yml!"
+      finish: "\nA instalação do StiDeploy foi concluída!"

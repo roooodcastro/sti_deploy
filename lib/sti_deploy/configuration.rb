@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
 require 'yaml'
-require 'pry'
 
 module StiDeploy
   class Configuration

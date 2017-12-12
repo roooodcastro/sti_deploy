@@ -20,11 +20,12 @@ Gem::Specification.new do |s|
                   'to the working branch, merges to the deploy branch, ' \
                   'and creates a release tag.'
 
+  s.required_ruby_version = '~> 2.1'
   s.files = Dir['{bin,lang,lib}/**/*'] +
     ['LICENSE', 'README.md']
 
   s.add_runtime_dependency 'colorize', '~> 0'
-  s.add_runtime_dependency 'i18n', '~> 0.6.6'
+  s.add_runtime_dependency 'i18n', '~> 0.6'
 
-  s.add_development_dependency 'rubocop', '~> 0.49.0'
+  s.add_development_dependency 'rubocop', '~> 0.49'
 end

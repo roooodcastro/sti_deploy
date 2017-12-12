@@ -20,3 +20,10 @@ en:
     system:
       interrupted: "\n\nDeploy aborted. Bye-bye."
       finished: "\nThe deploy init process has finished!"
+    generator:
+      language_chosen: Language set to English!
+      username_prompt: "\nType in your Git username:"
+      username_chosen: "Username configured!\n"
+      gitignore_updated: 'The new file sti_deploy.yml was added to the .gitignore file!'
+      gitignore_skipped: "\nThe .gitignore file already ignores the new sti_deploy.yml file!"
+      finish: "\nThe installation of StiDeploy is finished!"
