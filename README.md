@@ -25,6 +25,10 @@ ações:
 Instale a gem usando:
 
     gem install sti_deploy
+
+> Não é recomendado adicionar esta gem ao Gemfile do projeto, pois apenas líderes
+técnicos podem fazer deploy, um desenvolvedor sem acesso de líder técnico não
+irá conseguir utilizar a gem corretamente.
     
 Execute o instalador:
 
@@ -36,7 +40,34 @@ adicionado ao `.gitignore`, pois ele **não deve ser commitado**.
  
 ## Utilização
 
-Para utilizar, basta executar o comando `sti_deploy` no terminal, no diretório
-root do projeto. O script irá pedir os dados necessários para fazer os commits,
-merges e tags necessárias para dar início ao deploy. A gem **não** realiza o
-deploy em si.
+Para utilizar esta gem, basta executar o comando `sti_deploy` no terminal, no
+diretório root do projeto. O script irá pedir os dados necessários para fazer
+os commits, merges e tags necessárias para dar início ao deploy. A gem **não**
+realiza o deploy em si.
+
+## Licensa, Créditos, Contribuição
+
+Esta gem utiliza a licensa MIT:
+
+> Copyright 2017 Rodrigo Castro Azevedo
+>
+> Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+>
+> The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+>
+> THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+Esta gem foi desenvolvida por:
+
+[@roooodcastro](https://github.com/roooodcastro/sti_deploy)
+
+Os seguintes desenvolvedores colaboraram no desenvolvimento da gem:
+
+> Ninguém
+
+Para contribuir, siga os seguintes passos:
+
+- Abra uma Issue explicando as alterações propostas
+- Crie um fork do repositório
+- Crie uma branch para as alterações
+- Abra um Pull Request das suas alterações
