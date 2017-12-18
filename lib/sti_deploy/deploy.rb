@@ -25,7 +25,7 @@ module StiDeploy
     def read_type
       Messages.print('deploy_type.prompt')
       type = gets.chomp
-      return @type = DeployType.new(type) if %w[f F h H p P].include? type
+      return @type = DeployType.new(type) if %w[f F h H p P r R].include? type
       Messages.puts('deploy_type.invalid')
       read_type
     end

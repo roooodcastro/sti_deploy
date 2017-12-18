@@ -86,5 +86,14 @@ module StiDeploy
       self.hotfix = 0
       self.pre += 1
     end
+
+    # Bump (r)release
+    def bump_r
+      # Se ainda não estiver em PRE nem RC, da bump no minor
+      self.minor += 1 if pre.zero? && rc.zero?
+      self.hotfix = 0
+      self.pre = 0
+      self.rc = 0
+    end
   end
 end
