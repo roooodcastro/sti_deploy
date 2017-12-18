@@ -9,7 +9,7 @@ module StiDeploy
     end
 
     def full_name
-      { h: 'staging', f: 'hotfix', p: 'project' }[type.to_sym]
+      { h: 'staging', f: 'hotfix', p: 'project', r: 'release' }[type.to_sym]
     end
 
     def to_s
