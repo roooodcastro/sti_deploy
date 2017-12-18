@@ -19,7 +19,7 @@ module StiDeploy
         I18n.load_path = Dir[LANG_PATH]
         I18n.backend.load_translations
         I18n.default_locale = :en
-        return unless const_defined?(:Configuration)
+        return unless const_defined?('StiDeploy::Configuration')
         I18n.locale = Configuration.language
       end
 

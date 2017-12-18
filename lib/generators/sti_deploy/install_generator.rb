@@ -55,7 +55,7 @@ DESC
     protected
 
     def file_not_found(file, say_if_not_found = true)
-      unless File.exists?(file)
+      unless File.exist?(file)
         msg = "#{file} not found, configure manually"
         shell.say_status('not found', msg, :red) if say_if_not_found
         return true
@@ -64,15 +64,19 @@ DESC
     end
 
     def choose_language
+      choice = ask_language
+      options_array = Array.new(I18n.available_locales.size) { |i| i + 1 }
+      return nil unless options_array.include?(choice.to_i)
+      I18n.available_locales[choice.to_i - 1]
+    end
+
+    def ask_language
       puts 'Which language do you prefer?'
       I18n.available_locales.each_with_index do |locale, index|
         puts "  #{index + 1}: #{locale}"
       end
       print '> '
-      choice = gets
-      options_array = I18n.available_locales.size.times.map { |i| i + 1 }
-      return nil unless options_array.include?(choice.to_i)
-      I18n.available_locales[choice.to_i - 1]
+      gets
     end
 
     def choose_username
