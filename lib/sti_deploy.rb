@@ -5,10 +5,12 @@ require 'pathname'
 require_relative 'sti_deploy/configuration'
 require_relative 'sti_deploy/messages'
 require_relative 'sti_deploy/version'
+require_relative 'sti_deploy/version/version_bumper'
 require_relative 'sti_deploy/git'
+require_relative 'sti_deploy/git/commit'
+require_relative 'sti_deploy/git/merge'
 require_relative 'sti_deploy/deploy_type'
 require_relative 'sti_deploy/deploy'
-require_relative 'sti_deploy/version/version_bumper'
 
 Dir[__dir__ + '/sti_deploy/version/*.rb'].each { |file| require_relative(file) }
 Dir[__dir__ + '/sti_deploy/deploy/*.rb'].each { |file| require_relative(file) }
