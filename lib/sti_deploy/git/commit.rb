@@ -12,8 +12,8 @@ module StiDeploy
       def commit!
         Messages.puts('git.committing', color: :yellow)
         Git.add_version
-        return true if Git.commit(message: message) && Git.push(branch: origin)
-        Messages.puts('git.push_error', target: origin, color: :red)
+        return true if Git.commit(message: message) && Git.push(branch: branch)
+        Messages.puts('git.push_error', target: branch, color: :red)
         exit(4)
       end
 
