@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    sti_deploy (0.4.3)
+    sti_deploy (0.4.4)
       colorize (~> 0)
       i18n (~> 0.6)
 

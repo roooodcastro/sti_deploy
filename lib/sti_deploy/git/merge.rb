@@ -20,27 +20,27 @@ module StiDeploy
       # Makes sure the branch is updated
       def update_target_branch!
         return true if Git.checkout(branch: target) && Git.pull(branch: target)
-        Messages.puts('git.pull_error', origin: origin_branch, color: :red)
+        Messages.puts('git.pull_error', origin: origin, color: :red)
         exit(4)
       end
 
       def try_merge!
         return true if Git.merge(branch: origin)
-        Messages.puts('git.merge_error', origin: origin_branch,
-                      target: target_branch, color: :red)
+        Messages.puts('git.merge_error', origin: origin, target: target,
+                      color: :red)
         exit(4)
       end
 
       def finalize_merge!
         return true if Git.push(branch: target) && Git.checkout(branch: origin)
-        Messages.puts('git.push_error', target: target_branch, color: :red)
+        Messages.puts('git.push_error', target: target, color: :red)
         exit(4)
       end
 
       # It only needs to merge if the origin branch is different from the
       # target branch (no need to merge to the same branch).
       def needs_merge?
-        origin_branch.to_s != target_branch.to_s
+        origin.to_s != target.to_s
       end
     end
   end
