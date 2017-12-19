@@ -10,31 +10,31 @@ module StiDeploy
       end
 
       def commit(message: '')
-        `git commit -m "#{message.tr('"', '\"')}"`.zero?
+        `git commit -m "#{message.tr('"', '\"')}"`.to_i.zero?
       end
 
       def checkout(branch: 'master')
-        `git checkout #{branch}`.zero?
+        `git checkout #{branch}`.to_i.zero?
       end
 
       def merge(branch: 'master')
-        `git merge #{branch}`.zero?
+        `git merge #{branch}`.to_i.zero?
       end
 
       def tag(version: '', message: '')
-        `git tag -a v#{version.to_s} -m "#{message.tr('"', '\"')}"`.zero?
+        `git tag -a v#{version.to_s} -m "#{message.tr('"', '\"')}"`.to_i.zero?
       end
 
       def pull(branch: 'master', remote: 'origin')
-        `git pull #{remote} #{branch}`.zero?
+        `git pull #{remote} #{branch}`.to_i.zero?
       end
 
       def push(branch: 'master', remote: 'origin')
-        `git push #{remote} #{branch}`.zero?
+        `git push #{remote} #{branch}`.to_i.zero?
       end
 
       def push_tags
-        `git push --tags`.zero?
+        `git push --tags`.to_i.zero?
       end
     end
 
