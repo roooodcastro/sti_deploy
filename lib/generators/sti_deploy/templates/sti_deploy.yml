@@ -3,11 +3,16 @@ language: '<LANG>'
 version_path: 'config/initializers/version.rb'
 branches:
   hotfix:
-    origin: hotfix
-    target: producao
-  project:
-    origin: projeto
-    target: homologacao
-  staging:
-    origin: master
-    target: homologacao
+    commit: hotfix
+    merge: producao
+  release_candidate:
+    commit: master
+    merge: homologacao
+  pre_release:
+    commit: projeto
+    merge: homologacao
+  release:
+    commit: homologacao
+    merge:
+      - producao
+      - hotfix

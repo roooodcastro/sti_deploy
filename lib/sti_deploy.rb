@@ -8,13 +8,18 @@ require_relative 'sti_deploy/version'
 require_relative 'sti_deploy/git'
 require_relative 'sti_deploy/deploy_type'
 require_relative 'sti_deploy/deploy'
+require_relative 'sti_deploy/version/version_bumper'
+
+Dir[__dir__ + '/sti_deploy/version/*.rb'].each { |file| require_relative(file) }
+Dir[__dir__ + '/sti_deploy/deploy/*.rb'].each { |file| require_relative(file) }
 
 # Program exit codes:
 #
-# -3: Error: Program was interrupted (CTRL+C)
-# -2: Error: Version file was not found
-# -1: Error: A valid version number within the version file was not found
-#  0: Program exited successfully
+# 0: Program exited successfully
+# 1: Error: A valid version number within the version file was not found
+# 2: Error: Version file was not found
+# 3: Error: Program was interrupted (CTRL+C)
+# 4: Error: There was an error during the Git commit or merge process
 
 module StiDeploy
   class << self
@@ -26,7 +31,7 @@ module StiDeploy
       Messages.puts 'system.finished', color: :green
     rescue Interrupt
       Messages.puts 'system.interrupted', color: :red
-      exit(-3)
+      exit(3)
     end
   end
 end

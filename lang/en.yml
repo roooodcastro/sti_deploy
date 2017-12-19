@@ -6,16 +6,19 @@ en:
       detected: "Version number detected: %{version}"
       increment: "\nThe version number will be bumped from \"%{old}\" to \"%{new}\"."
     deploy_type:
-      prompt: "\nIs the deploy for hot(f)ix, staging(h), (p)roject, or (r)elease? Type in \"f\", \"h\", \"p\", or \"r\": "
-      invalid: 'Invalid option. Type in only "f", "h", "p", or "r", imbecile!'
+      prompt: "\nIs the deploy for (h)otfix, release (c)andidate, (p)re-release, or (r)elease? Type in \"c\", \"h\", \"p\", or \"r\": "
+      invalid: 'Invalid option. Type in only "c", "h", "p", or "r", imbecile!'
     release_message:
       prompt: "\nInform a summary of the changes made, in order to create a Git tag:\n> "
       invalid: 'Please write a proper summary (min of 10 chars)!'
     git:
       by: by
-      preparing: Setting up for deploy.
       committing: "\nCommiting the new version number..."
+      merge_error: "There was an error during the merge from \"%{origin}\" to \"%{target}\". Please resolve any conflicts and try again."
       merging: "\nMerging from \"%{origin}\" to \"%{target}\"..."
+      preparing: Setting up for deploy.
+      pull_error: "There was an error trying to checkout and pull from \"%{origin}\". Abort, abort!"
+      push_error: "There was an error trying to push to \"%{target}\". Abort, abort!"
       tagging: "\nCreating a new tag..."
     system:
       interrupted: "\n\nDeploy aborted. Bye-bye."

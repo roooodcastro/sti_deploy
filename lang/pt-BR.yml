@@ -6,16 +6,19 @@ pt-BR:
       detected: "Número de versão detectado: %{version}"
       increment: "\nA versão será incrementada de \"%{old}\" para \"%{new}\"."
     deploy_type:
-      prompt: "\nO deploy é para hot(f)ix, (h)omologação, or (p)rojeto? Digite \"f\", \"h\", \"p\", ou \"r\": "
-      invalid: 'Tipo inválido. Digite apenas "f", "h", "p", ou "r", animal!'
+      prompt: "\nO deploy é para (h)otfix, (c)andidato de release, (p)ré-release, ou (r)elease? Digite \"c\", \"h\", \"p\", ou \"r\": "
+      invalid: 'Tipo inválido. Digite apenas "c", "h", "p", ou "r", animal!'
     release_message:
       prompt: "\nEscreva um resumo das alterações feitas, para criar a tag no Git:\n> "
       invalid: 'Escreva uma mensagem decente (min 10 chars)!'
     git:
       by: por
-      preparing: Preparando para deploy.
       committing: "\nComitando a nova versão..."
+      merge_error: "Houve um erro durante o merge de \"%{origin}\" para \"%{target}\". Resolva os conflitos e tente novamente."
       merging: "\nFazendo merge de \"%{origin}\" para \"%{target}\"..."
+      preparing: Preparando para deploy.
+      pull_error: "Houve um erro durante o checkout e pull de \"%{origin}\". Abortar, abortar!"
+      push_error: "Houve um erro durante o push para \"%{target}\". Abortar, abortar!"
       tagging: "\nCriando uma nova tag..."
     system:
       interrupted: "\n\nDeploy abortado. Bye-bye."

@@ -21,14 +21,14 @@ module StiDeploy
         read('git_username') || ''
       end
 
-      def origin_branch(deploy_type)
-        read('branches')[deploy_type.full_name]['origin'] || 'master'
+      def commit_branch(deploy_type)
+        read('branches')[deploy_type.to_s]['commit'] || 'master'
       rescue StandardError
         'master'
       end
 
-      def target_branch(deploy_type)
-        read('branches')[deploy_type.full_name]['target'] || 'master'
+      def merge_branch(deploy_type)
+        read('branches')[deploy_type.to_s]['merge'] || 'master'
       rescue StandardError
         'master'
       end

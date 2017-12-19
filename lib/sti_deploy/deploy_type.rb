@@ -4,16 +4,23 @@ module StiDeploy
   class DeployType
     attr_reader :type
 
+    DEPLOY_TYPES = {
+      c: 'release_candidate',
+      h: 'hotfix',
+      p: 'pre_release',
+      r: 'release'
+    }
+
     def initialize(type)
       @type = type.downcase
     end
 
     def full_name
-      { h: 'staging', f: 'hotfix', p: 'project', r: 'release' }[type.to_sym]
+      DEPLOY_TYPES[type.to_sym]
     end
 
     def to_s
-      type
+      full_name
     end
   end
 end
