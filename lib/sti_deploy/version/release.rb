@@ -3,7 +3,7 @@
 module StiDeploy
   class Version
     class Release < VersionBumper
-      def bump_version
+      def bump
         version.minor += 1 if version.pre.zero? && version.rc.zero?
         version.hotfix = 0
         version.pre = 0
